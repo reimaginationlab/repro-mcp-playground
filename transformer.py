@@ -1,5 +1,6 @@
 from typing import Any, Optional
 from dataclasses import dataclass, field, asdict
+from datetime import datetime, timedelta
 
 
 STATE_NAMES = {
@@ -156,11 +157,30 @@ def transform_form_data(
             conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
             conclusions.travel_may_enable_care = True
 
-            plain_text = (
-                f"In {state_name}, abortion care is restricted based on gestational duration. "
-                f"Abortion is available up to a specific point in pregnancy. The user may have "
-                f"access to in-state care depending on how far along they are."
-            )
+            # Get gestational ban weeks and convert to days
+            gestational_ban_weeks = abortion_bans.get("Gestational Ban Weeks")
+            if gestational_ban_weeks is not None:
+                # Convert weeks to days
+                gestational_ban_days = int(gestational_ban_weeks * 7)
+
+                # Calculate the cutoff date (days ago from today)
+                today = datetime.now()
+                cutoff_date = today - timedelta(days=gestational_ban_days)
+                cutoff_date_str = cutoff_date.strftime("%B %d, %Y")
+
+                plain_text = (
+                    f"In {state_name}, abortion care is restricted based on gestational duration. "
+                    f"Abortion is available up to {gestational_ban_weeks} weeks ({gestational_ban_days} days) "
+                    f"of pregnancy. For someone seeking care today, this means their last menstrual period "
+                    f"would need to have started on or after {cutoff_date_str}. The user may have "
+                    f"access to in-state care depending on how far along they are."
+                )
+            else:
+                plain_text = (
+                    f"In {state_name}, abortion care is restricted based on gestational duration. "
+                    f"Abortion is available up to a specific point in pregnancy. The user may have "
+                    f"access to in-state care depending on how far along they are."
+                )
 
         elif ban_type == "Cardiac Activity Ban":
             conclusions.clinic_access_in_state = True  # Very early access only

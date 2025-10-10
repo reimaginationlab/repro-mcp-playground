@@ -1,25 +1,39 @@
 import os
+import asyncio
 import httpx
 from geography import city_latlon
 from transformer import transform_form_data
 
 
-async def fetch_policy_data(state: str, api_key: str, subscription_key: str) -> dict:
-    """Fetch policy data from the abortion policy API"""
+async def fetch_policy_data(state: str, api_key: str, subscription_key: str, max_retries: int = 3) -> dict:
+    """Fetch policy data from the abortion policy API with retries"""
     url = f"https://api.abortionpolicyapi.com/v2/states/{state}"
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Ocp-Apim-Subscription-Key": subscription_key
     }
 
-    async with httpx.AsyncClient() as client:
-        response = await client.get(url, headers=headers)
-        response.raise_for_status()
-        return response.json()
+    last_exception = None
+    for attempt in range(max_retries):
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                response = await client.get(url, headers=headers)
+                response.raise_for_status()
+                return response.json()
+        except (httpx.HTTPError, httpx.TimeoutException) as e:
+            last_exception = e
+            if attempt < max_retries - 1:
+                # Exponential backoff: 1s, 2s, 4s
+                wait_time = 2 ** attempt
+                await asyncio.sleep(wait_time)
+            continue
+
+    # If we exhausted all retries, raise the last exception
+    raise last_exception
 
 
-async def fetch_clinic_data(latitude: float, longitude: float, api_key: str) -> dict:
-    """Fetch clinic data from the ineedana.com API"""
+async def fetch_clinic_data(latitude: float, longitude: float, api_key: str, max_retries: int = 3) -> dict:
+    """Fetch clinic data from the ineedana.com API with retries"""
     url = "https://www.ineedana.com/api/v2/search"
     params = {
         "orderBy": "distance",
@@ -31,10 +45,23 @@ async def fetch_clinic_data(latitude: float, longitude: float, api_key: str) -> 
         "Authorization": f"Bearer {api_key}"
     }
 
-    async with httpx.AsyncClient() as client:
-        response = await client.get(url, params=params, headers=headers)
-        response.raise_for_status()
-        return response.json()
+    last_exception = None
+    for attempt in range(max_retries):
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                response = await client.get(url, params=params, headers=headers)
+                response.raise_for_status()
+                return response.json()
+        except (httpx.HTTPError, httpx.TimeoutException) as e:
+            last_exception = e
+            if attempt < max_retries - 1:
+                # Exponential backoff: 1s, 2s, 4s
+                wait_time = 2 ** attempt
+                await asyncio.sleep(wait_time)
+            continue
+
+    # If we exhausted all retries, raise the last exception
+    raise last_exception
 
 
 def process_policy_request(inputs: dict) -> dict:
