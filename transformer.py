@@ -125,17 +125,18 @@ def transform_form_data(
         minors = policies.get("Minors", {})
         tmab = policies.get("TMAB", {})
 
-        is_total_ban = abortion_bans.get("Abortion Bans") == "Total Ban"
+        ban_type = abortion_bans.get("Abortion Bans")
         ban_exceptions = abortion_bans.get("Ban Exceptions", [])
         tmab_status = tmab.get("TMAB", [])
+        state_name = STATE_NAMES.get(data["state"], data["state"])
 
-        if is_total_ban:
+        # Handle different ban types
+        if ban_type == "Total Ban":
             conclusions.clinic_access_in_state = False
             conclusions.pill_dispense_in_state = False
             conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
             conclusions.travel_may_enable_care = True
 
-            state_name = STATE_NAMES.get(data["state"], data["state"])
             plain_text = (
                 f"In {state_name}, abortion care is banned except for very limited "
                 f"emergencies, so the user can't get an in-state clinic appointment."
@@ -148,6 +149,61 @@ def transform_form_data(
                     "information can be added to the tool call to provide more concise "
                     "options and recommendations."
                 )
+
+        elif ban_type == "Gestational Duration Ban":
+            conclusions.clinic_access_in_state = True  # May have access depending on timing
+            conclusions.pill_dispense_in_state = True  # Usually available early
+            conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
+            conclusions.travel_may_enable_care = True
+
+            plain_text = (
+                f"In {state_name}, abortion care is restricted based on gestational duration. "
+                f"Abortion is available up to a specific point in pregnancy. The user may have "
+                f"access to in-state care depending on how far along they are."
+            )
+
+        elif ban_type == "Cardiac Activity Ban":
+            conclusions.clinic_access_in_state = True  # Very early access only
+            conclusions.pill_dispense_in_state = True  # Available very early
+            conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
+            conclusions.travel_may_enable_care = True
+
+            plain_text = (
+                f"In {state_name}, abortion care is banned once cardiac activity is detected "
+                f"(typically around 6 weeks). The user may have very limited time to access "
+                f"in-state care, usually only in the first few weeks after a missed period."
+            )
+
+        elif ban_type == "Fetal Viability Ban":
+            conclusions.clinic_access_in_state = True
+            conclusions.pill_dispense_in_state = True
+            conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
+            conclusions.travel_may_enable_care = False  # Usually not needed
+
+            plain_text = (
+                f"In {state_name}, abortion care is available until fetal viability "
+                f"(typically around 24-28 weeks). The user should have access to in-state "
+                f"care for most of their pregnancy."
+            )
+
+        elif ban_type == "No Ban":
+            conclusions.clinic_access_in_state = True
+            conclusions.pill_dispense_in_state = True
+            conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
+            conclusions.travel_may_enable_care = False  # Not needed
+
+            plain_text = (
+                f"In {state_name}, abortion care is accessible throughout pregnancy. "
+                f"The user should have good access to both medication and procedural "
+                f"abortion care in-state."
+            )
+
+        else:
+            # Unknown or null ban type
+            plain_text = (
+                f"Policy information for {state_name} is available. Please review the "
+                f"detailed policy data for specific restrictions and requirements."
+            )
 
     # Process clinic data if available
     if clinic_data and clinic_data.get("clinics") and isinstance(clinic_data["clinics"], list):
