@@ -1,12 +1,80 @@
-import anyio
+import os
+import httpx
 from geography import city_latlon
+from transformer import transform_form_data
+
+
+async def fetch_policy_data(state: str, api_key: str, subscription_key: str) -> dict:
+    """Fetch policy data from the abortion policy API"""
+    url = f"https://api.abortionpolicyapi.com/v2/states/{state}"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Ocp-Apim-Subscription-Key": subscription_key
+    }
+
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url, headers=headers)
+        response.raise_for_status()
+        return response.json()
+
+
+async def fetch_clinic_data(latitude: float, longitude: float, api_key: str) -> dict:
+    """Fetch clinic data from the ineedana.com API"""
+    url = "https://www.ineedana.com/api/v2/search"
+    params = {
+        "orderBy": "distance",
+        "locale": "en-US",
+        "latitude": latitude,
+        "longitude": longitude
+    }
+    headers = {
+        "Authorization": f"Bearer {api_key}"
+    }
+
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url, params=params, headers=headers)
+        response.raise_for_status()
+        return response.json()
 
 
 def process_policy_request(inputs: dict) -> dict:
+    """Process policy request and return transformed data"""
+    import asyncio
+
     state = inputs["state"]
-    preference = inputs["preference"]
-    
+    preference = inputs.get("preference")
+
+    # Get coordinates for clinic search
     lat, lon = city_latlon(state)
-    
-    return {"state": state, "preference": preference, "lat": lat, "lon": lon}
+
+    # Get API keys from environment
+    ineedana_api_key = os.getenv("INEEDANA_API_KEY")
+    if not ineedana_api_key:
+        raise ValueError("INEEDANA_API_KEY environment variable is not set")
+
+    policy_api_key = os.getenv("ABORTION_POLICY_API_KEY")
+    if not policy_api_key:
+        raise ValueError("ABORTION_POLICY_API_KEY environment variable is not set")
+
+    policy_subscription_key = os.getenv("ABORTION_POLICY_SUBSCRIPTION_KEY")
+    if not policy_subscription_key:
+        raise ValueError("ABORTION_POLICY_SUBSCRIPTION_KEY environment variable is not set")
+
+    # Fetch both policy and clinic data concurrently
+    async def fetch_all_data():
+        policy_task = fetch_policy_data(state, policy_api_key, policy_subscription_key)
+        clinic_task = fetch_clinic_data(lat, lon, ineedana_api_key)
+        return await asyncio.gather(policy_task, clinic_task)
+
+    policy_data, clinic_data = asyncio.run(fetch_all_data())
+
+    # Transform data using the transformer
+    form_data = {
+        "state": state,
+        "preference": preference,
+    }
+
+    result = transform_form_data(form_data, policy_data=policy_data, clinic_data=clinic_data)
+
+    return result.to_dict()
 

@@ -1,9 +1,13 @@
 import anyio
+from dotenv import load_dotenv
 from fastmcp import FastMCP
 from typing import Annotated, Literal
 from processing import process_policy_request
 
 from pydantic import Field
+
+# Load environment variables from .env file
+load_dotenv()
 
 mcp = FastMCP()
 
