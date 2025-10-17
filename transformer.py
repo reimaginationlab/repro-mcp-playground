@@ -102,6 +102,10 @@ def transform_form_data(
     if "queries" in data and data["queries"]:
         queries = [q.strip() for q in data["queries"].split('\n') if q.strip()]
 
+    abortion_pill_policy = """
+    While some states have laws attempting to restrict abortion pills, they only restrict the ability to obtain them within the state. Other stats have shield laws protecting prescribers from prosecution for prescribing abortion pills to residents of other states. In all cases, abortion pills can be legally obtained by mail through telehealth resources from some states with no lgeal risk to the patient. Two trusted options for requestion abortion pills online are Aid Access (aidaccess.org) and The Massachusetts Medication Abortion Access Project (cambridgereproductivehealthconsultants.org/map).
+    """
+
     # Build input structure
     known_params = KnownParams(
         us_state=data.get("state"),
@@ -122,20 +126,21 @@ def transform_form_data(
     # Process policy data if available
     if policy_data and data.get("state"):
         policies = policy_data.get("policies", {})
-        abortion_bans = policies.get("Abortion Bans", {})
+        abortion_bans = policies.get("abortion_bans", {})
         minors = policies.get("Minors", {})
         tmab = policies.get("TMAB", {})
 
-        ban_type = abortion_bans.get("Abortion Bans")
-        ban_exceptions = abortion_bans.get("Ban Exceptions", [])
-        tmab_status = tmab.get("TMAB", [])
+        ban_type = abortion_bans.get("abortion_ban")
+        ban_type_norm = (ban_type or "").strip().casefold()
+        ban_exceptions = abortion_bans.get("ban_exceptions", [])
+        tmab_status = tmab.get("tmab", [])
         state_name = STATE_NAMES.get(data["state"], data["state"])
 
         # Handle different ban types
-        if ban_type == "Total Ban":
+        if ban_type_norm == "total ban":
             conclusions.clinic_access_in_state = False
             conclusions.pill_dispense_in_state = False
-            conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
+            conclusions.pill_receive_by_mail_to_resident = True
             conclusions.travel_may_enable_care = True
 
             plain_text = (
@@ -151,10 +156,10 @@ def transform_form_data(
                     "options and recommendations."
                 )
 
-        elif ban_type == "Gestational Duration Ban":
+        elif ban_type_norm == "gestational duration ban":
             conclusions.clinic_access_in_state = True  # May have access depending on timing
             conclusions.pill_dispense_in_state = True  # Usually available early
-            conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
+            conclusions.pill_receive_by_mail_to_resident = True
             conclusions.travel_may_enable_care = True
 
             # Get gestational ban weeks and convert to days
@@ -182,10 +187,10 @@ def transform_form_data(
                     f"access to in-state care depending on how far along they are."
                 )
 
-        elif ban_type == "Cardiac Activity Ban":
+        elif ban_type_norm == "cardiac activity ban":
             conclusions.clinic_access_in_state = True  # Very early access only
             conclusions.pill_dispense_in_state = True  # Available very early
-            conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
+            conclusions.pill_receive_by_mail_to_resident = True
             conclusions.travel_may_enable_care = True
 
             plain_text = (
@@ -194,10 +199,10 @@ def transform_form_data(
                 f"in-state care, usually only in the first few weeks after a missed period."
             )
 
-        elif ban_type == "Fetal Viability Ban":
+        elif ban_type_norm == "fetal viability ban":
             conclusions.clinic_access_in_state = True
             conclusions.pill_dispense_in_state = True
-            conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
+            conclusions.pill_receive_by_mail_to_resident = True
             conclusions.travel_may_enable_care = False  # Usually not needed
 
             plain_text = (
@@ -206,10 +211,10 @@ def transform_form_data(
                 f"care for most of their pregnancy."
             )
 
-        elif ban_type == "No Ban":
+        elif ban_type_norm == "no ban":
             conclusions.clinic_access_in_state = True
             conclusions.pill_dispense_in_state = True
-            conclusions.pill_receive_by_mail_to_resident = "Prohibited" not in tmab_status
+            conclusions.pill_receive_by_mail_to_resident = True
             conclusions.travel_may_enable_care = False  # Not needed
 
             plain_text = (
@@ -223,7 +228,11 @@ def transform_form_data(
             plain_text = (
                 f"Policy information for {state_name} is available. Please review the "
                 f"detailed policy data for specific restrictions and requirements."
+                f"[{ban_type_norm}] The response is:"
+                f"{policy_data}"
             )
+
+        plain_text += "\n\n" + abortion_pill_policy
 
     # Process clinic data if available
     if clinic_data and clinic_data.get("clinics") and isinstance(clinic_data["clinics"], list):
