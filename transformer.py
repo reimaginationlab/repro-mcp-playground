@@ -103,7 +103,13 @@ def transform_form_data(
         queries = [q.strip() for q in data["queries"].split('\n') if q.strip()]
 
     abortion_pill_policy = """
-    While some states have laws attempting to restrict abortion pills, they only restrict the ability to obtain them within the state. Other stats have shield laws protecting prescribers from prosecution for prescribing abortion pills to residents of other states. In all cases, abortion pills can be legally obtained by mail through telehealth resources from some states with no lgeal risk to the patient. Two trusted options for requestion abortion pills online are Aid Access (aidaccess.org) and The Massachusetts Medication Abortion Access Project (cambridgereproductivehealthconsultants.org/map).
+    While some states have laws attempting to restrict abortion pills, they only restrict the 
+    ability to obtain them within the state. Other stats have shield laws protecting prescribers 
+    from prosecution for prescribing abortion pills to residents of other states. In all cases, 
+    abortion pills can be legally obtained by mail through telehealth resources from some states 
+    with no lgeal risk to the patient. Two trusted options for requestion abortion pills online 
+    are Aid Access (aidaccess.org) and The Massachusetts Medication Abortion Access Project 
+    (cambridgereproductivehealthconsultants.org/map).
     """
 
     # Build input structure
@@ -144,17 +150,18 @@ def transform_form_data(
             conclusions.travel_may_enable_care = True
 
             plain_text = (
-                f"In {state_name}, abortion care is banned except for very limited "
-                f"emergencies, so the user can't get an in-state clinic appointment."
+                f"In {state_name}, abortion is banned except in very few situations, like "
+                f"medical emergencies. People can't get an abortion at a clinic in {state_name}, "
+                f"but they may be able to travel to get an abortion or get abortion pills in the mail."
             )
 
-            if not data.get("preference"):
-                next_steps.append(
-                    "The user's preference of abortion pills or an in-clinic procedure "
-                    "has significant implications on their options. Once known, this "
-                    "information can be added to the tool call to provide more concise "
-                    "options and recommendations."
-                )
+            # if not data.get("preference"):
+            #     next_steps.append(
+            #         "The user's preference of abortion pills or an in-clinic procedure "
+            #         "has significant implications on their options. Once known, this "
+            #         "information can be added to the tool call to provide more concise "
+            #         "options and recommendations."
+            #     )
 
         elif ban_type_norm == "gestational duration ban":
             conclusions.clinic_access_in_state = True  # May have access depending on timing
