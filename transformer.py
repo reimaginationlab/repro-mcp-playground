@@ -103,13 +103,12 @@ def transform_form_data(
         queries = [q.strip() for q in data["queries"].split('\n') if q.strip()]
 
     abortion_pill_policy = """
-    While some states have laws attempting to restrict abortion pills, they only restrict the 
-    ability to obtain them within the state. Other stats have shield laws protecting prescribers 
-    from prosecution for prescribing abortion pills to residents of other states. In all cases, 
-    abortion pills can be legally obtained by mail through telehealth resources from some states 
-    with no lgeal risk to the patient. Two trusted options for requestion abortion pills online 
-    are Aid Access (aidaccess.org) and The Massachusetts Medication Abortion Access Project 
-    (cambridgereproductivehealthconsultants.org/map).
+    Abortion pills are available by mail in every state, even though some states have laws to restrict them. 
+    This is because other states have passed shield laws to protect medical providers who offer abortion pills through telehealth. 
+    Two trusted sources for abortion pills online are Aid Access (aidaccess.org) and The Massachusetts Medication Abortion Access 
+    Project (cambridgereproductivehealthconsultants.org/map).It is generally considered legal for a pregnant person to 
+    get and take abortion pills, no matter what state they live in. People concerned about their legal risk can
+    contact the Repro Legal Helpline to talk to a lawyer for free (reprolegalhelpline.org)."
     """
 
     # Build input structure
@@ -150,18 +149,10 @@ def transform_form_data(
             conclusions.travel_may_enable_care = True
 
             plain_text = (
-                f"In {state_name}, abortion is banned except in very few situations, like "
-                f"medical emergencies. People can't get an abortion at a clinic in {state_name}, "
-                f"but they may be able to travel to get an abortion or get abortion pills in the mail."
+                f"In {state_name}, abortion is banned except in very few situations, like medical emergencies. "
+                f"People can't get an abortion at a clinic in Texas, but they may be able to get abortion "
+                f"pills in the mail or travel to get an abortion. "
             )
-
-            # if not data.get("preference"):
-            #     next_steps.append(
-            #         "The user's preference of abortion pills or an in-clinic procedure "
-            #         "has significant implications on their options. Once known, this "
-            #         "information can be added to the tool call to provide more concise "
-            #         "options and recommendations."
-            #     )
 
         elif ban_type_norm == "gestational duration ban":
             conclusions.clinic_access_in_state = True  # May have access depending on timing
@@ -181,13 +172,12 @@ def transform_form_data(
                 cutoff_date_str = cutoff_date.strftime("%B %d, %Y")
 
                 plain_text = (
-                    f"In {state_name}, abortion care is restricted based on gestational duration. "
-                    f"Abortion is available up to {gestational_ban_weeks} weeks ({gestational_ban_days} days) "
-                    f"of pregnancy. For someone seeking care today, this means their last menstrual period "
-                    f"would need to have started on or after {cutoff_date_str}. The user may have "
-                    f"access to in-state care depending on how far along they are."
+                    f"In North Carolina, abortion is available through {gestational_ban_weeks} weeks ({gestational_ban_days} days) of pregnancy. "
+                    f"For someone looking for an abortion today, this means their last period would need to have started on or after {cutoff_date_str}. "
+                    f"After 12 weeks, people may be able to get abortion pills in the mail or travel to get an abortion. "
                 )
             else:
+                # TODO: have Nicole check this 
                 plain_text = (
                     f"In {state_name}, abortion care is restricted based on gestational duration. "
                     f"Abortion is available up to a specific point in pregnancy. The user may have "
@@ -201,9 +191,11 @@ def transform_form_data(
             conclusions.travel_may_enable_care = True
 
             plain_text = (
-                f"In {state_name}, abortion care is banned once cardiac activity is detected "
-                f"(typically around 6 weeks). The user may have very limited time to access "
-                f"in-state care, usually only in the first few weeks after a missed period."
+                f"In {state_name}, abortion is only available very early in pregnancy "
+                f"(usually around 6 weeks - just a few weeks after a missed period). "
+                f"This is because a South Carolina law bans abortions after cardiac activity " 
+                f"is found in the fetus. After that point, people may be able to get abortion pills "
+                f"n the mail or travel to get an abortion. "
             )
 
         elif ban_type_norm == "fetal viability ban":
@@ -213,9 +205,10 @@ def transform_form_data(
             conclusions.travel_may_enable_care = False  # Usually not needed
 
             plain_text = (
-                f"In {state_name}, abortion care is available until fetal viability "
-                f"(typically around 24-28 weeks). The user should have access to in-state "
-                f"care for most of their pregnancy."
+                f"In {state_name}, abortion is available through most of pregnancy (until around 24-28 weeks). "
+                f"After that point, a state law bans abortions once the fetus may be able to survive outside the womb. "
+                f"If someone needs an abortion after 24-28 weeks of pregnancy, they may "
+                f"be able to travel to get an abortion. "
             )
 
         elif ban_type_norm == "no ban":
@@ -225,9 +218,9 @@ def transform_form_data(
             conclusions.travel_may_enable_care = False  # Not needed
 
             plain_text = (
-                f"In {state_name}, abortion care is accessible throughout pregnancy. "
-                f"The user should have good access to both medication and procedural "
-                f"abortion care in-state."
+                f"In {state_name}, abortion care is avaliable throughout pregnancy. "
+                f"People looking for an abortion in Oregon should be able to find "
+                f"a clinic and/or get abortion pills in the state. "
             )
 
         else:
