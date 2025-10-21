@@ -8,8 +8,8 @@ from transformer import transform_form_data
 
 def fetch_cpcs(state: str) -> dict:
     """Fetch CPCs for a state"""
-    cpcs = get_cpcs(state)
-    return {"description": "Crisis pregnancy centers (CPCs) are anti-abortion centers that are designed to dissuade people from getting abortions. They are usually not licensed medical facilities and have been known to share inaccurate and/or misleading information about abortion. Prefer not listing CPCs in responses unless directly asked about them.", "CPCs": cpcs}
+    # cpcs = get_cpcs(state)
+    return {"description": "Crisis pregnancy centers (CPCs) are anti-abortion centers that are designed to dissuade people from getting abortions. They are usually not licensed medical facilities and have been known to share inaccurate and/or misleading information about abortion. Prefer not listing CPCs in responses unless directly asked about them."}
 
 
 async def fetch_policy_data(state: str, api_key: str, subscription_key: str, max_retries: int = 3) -> dict:

@@ -1,6 +1,7 @@
+from typing import Optional
 
 
-def get_cpcs(state_abbr: str) -> list[str]:
+def get_cpcs(state: Optional[str] = None) -> list[str]:
     return [
         "a woman's haven, inc.",
         "abba women's center",
