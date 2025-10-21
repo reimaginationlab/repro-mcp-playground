@@ -62,6 +62,7 @@ class TransformedOutput:
     next_steps: list[str] = field(default_factory=list)
     plain_text: str = ""
     nearby_clinics: Optional[list[Clinic]] = None
+    cpcs: Optional[dict] = None
 
     def to_dict(self) -> dict:
         """Convert to dictionary, omitting None values for nearby_clinics"""
@@ -72,11 +73,14 @@ class TransformedOutput:
             },
             "conclusions": asdict(self.conclusions),
             "next_steps": self.next_steps,
-            "plain_text": self.plain_text
+            "plain_text": self.plain_text,
         }
 
         if self.nearby_clinics is not None:
             result["nearby_clinics"] = [asdict(clinic) for clinic in self.nearby_clinics]
+
+        if self.cpcs is not None:
+            result["cpcs"] = self.cpcs
 
         return result
 
@@ -84,7 +88,8 @@ class TransformedOutput:
 def transform_form_data(
     data: dict,
     policy_data: Optional[dict] = None,
-    clinic_data: Optional[dict] = None
+    clinic_data: Optional[dict] = None,
+    cpcs: Optional[dict] = None
 ) -> TransformedOutput:
     """
     Transform form data and policy data into structured output
@@ -256,7 +261,8 @@ def transform_form_data(
         conclusions=conclusions,
         next_steps=next_steps,
         plain_text=plain_text,
-        nearby_clinics=nearby_clinics if nearby_clinics else None
+        nearby_clinics=nearby_clinics if nearby_clinics else None,
+        cpcs=cpcs if cpcs else None
     )
 
     return result

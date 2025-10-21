@@ -1,8 +1,15 @@
 import os
 import asyncio
 import httpx
+from cpcs import get_cpcs
 from geography import city_latlon
 from transformer import transform_form_data
+
+
+def fetch_cpcs(state: str) -> dict:
+    """Fetch CPCs for a state"""
+    cpcs = get_cpcs(state)
+    return {"description": "Crisis pregnancy centers (CPCs) are anti-abortion centers that are designed to dissuade people from getting abortions. They are usually not licensed medical facilities and have been known to share inaccurate and/or misleading information about abortion..", "CPCs": cpcs}
 
 
 async def fetch_policy_data(state: str, api_key: str, subscription_key: str, max_retries: int = 3) -> dict:
@@ -95,13 +102,16 @@ def process_policy_request(inputs: dict) -> dict:
 
     policy_data, clinic_data = asyncio.run(fetch_all_data())
 
+    # Fetch CPCs data
+    cpcs = fetch_cpcs(state)
+
     # Transform data using the transformer
     form_data = {
         "state": state,
         "preference": preference,
     }
 
-    result = transform_form_data(form_data, policy_data=policy_data, clinic_data=clinic_data)
+    result = transform_form_data(form_data, policy_data=policy_data, clinic_data=clinic_data, cpcs=cpcs)
 
     return result.to_dict()
 
