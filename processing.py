@@ -2,7 +2,7 @@ import os
 import asyncio
 import httpx
 from cpcs import get_cpcs
-from geography import city_latlon
+from geography import city_latlon, get_state_id
 from transformer import transform_form_data
 
 
@@ -14,7 +14,9 @@ def fetch_cpcs(state: str) -> dict:
 
 async def fetch_policy_data(state: str, api_key: str, subscription_key: str, max_retries: int = 3) -> dict:
     """Fetch policy data from the abortion policy API with retries"""
-    url = f"https://api.abortionpolicyapi.com/v2/states/{state}"
+    state_id = get_state_id(state)
+    
+    url = f"https://api.abortionpolicyapi.com/v2/states/{state_id}"
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Ocp-Apim-Subscription-Key": subscription_key

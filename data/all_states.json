@@ -1,0 +1,883 @@
+{
+    "version": "2.0.0-rc2",
+    "policies": [{
+        "state_id": "utah",
+        "state": "Utah",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 17,
+            "ban_exceptions": ["Life", "Health - Physical", "Fetal Indication", "Rape/Incest"],
+            "ban_penalties": ["Criminal - Felony", "Civil  - Professional Penalties"],
+            "reason_bans": ["Disability"],
+            "method_bans": ["D&X"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_physical": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 17,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 17.6 weeks and later with limited exceptions. Patients forced to wait 72 hours after counseling. Parental consent and notice is required for a minor's abortion. Health insurance exchange coverage and private health insurance coverage of abortion is banned except in limited circumstances.  State Medicaid covers abortion care in specific circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "17.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "17.6"
+        }
+    }, {
+        "state_id": "guam",
+        "state": "Guam",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 13,
+            "ban_exceptions": ["Life", "Rape/Incest", "Fetal Indication", "Health - Any"],
+            "abortion_ban_notes": "The exceptions for rape and incest  and for a fetal indication are limited, and only allow abortions in these cases prior to 26 weeks.",
+            "ban_penalties": ["Criminal - Felony"],
+            "method_bans": ["D&X"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_any": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 13,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 24 weeks and later with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 24 hours later for the abortion. Parental consent is required for a minor's abortion.",
+            "gestational_ban_days": 0,
+            "gestational_ban_combined": "13.0",
+            "de_facto_gestational_ban_combined": "13.0"
+        }
+    }, {
+        "state_id": "montana",
+        "state": "Montana",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life"],
+            "ban_penalties": ["Criminal - Felony"],
+            "method_bans": ["D&X"],
+            "exception_life": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State constitution protects abortion rights up to fetal viability. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "washington_dc",
+        "state": "Washington, D.C.",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "State laws protect abortion. Minors may consent to abortion, no parental involvement is required. State Medicaid coverage of abortion care is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "hawaii",
+        "state": "Hawaii",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Any"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State laws protect abortion. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care. Private health insurance coverage of abortion is required.",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "new_mexico",
+        "state": "New Mexico",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "method_bans": ["D&X"],
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "Abortion is not restricted based on gestational duration. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "california",
+        "state": "California",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Any"],
+            "abortion_ban_notes": "Failure to comply with the State's Reproductive Privacy Act constitutes unprofessional conduct.",
+            "ban_penalties": ["Civil  - Professional Penalties"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State constitution protects abortion rights. State law protects abortion up to fetal viability. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care. Private health insurance coverage of abortion is required. ",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "florida",
+        "state": "Florida",
+        "abortion_bans": {
+            "abortion_ban": "Cardiac Activity Ban",
+            "ban_exceptions": ["Life", "Health - Physical", "Fetal Indication", "Rape/Incest"],
+            "abortion_ban_notes": "Florida's rape/incest exception is only applicable up to 15 weeks' gestation and fetal indication exception available only the first two trimesters of pregnancy. \n\n",
+            "ban_penalties": ["Criminal - Felony", "Civil  - Professional Penalties"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_physical": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 6,
+            "de_facto_notes": "Abortion is banned based on fetal development of a \"fetal heartbeat,\" or when early electrical induced flickering of fetal tissue, may be detected in an embryo. This is interpreted to be a ban at around 6 weeks LMP with limited exceptions.",
+            "short_summary": "Abortion is banned at 6 weeks and later, with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 24 hours later for the abortion. Parental consent and notice is required for a minor's abortion. Health insurance exchange coverage of abortion is banned except in limited circumstances. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "6.0"
+        }
+    }, {
+        "state_id": "arkansas",
+        "state": "Arkansas",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life"],
+            "ban_penalties": ["Criminal - Felony"],
+            "reason_bans": ["Disability"],
+            "method_bans": ["D&X", "D&E"],
+            "exception_life": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 72 hours later for the abortion. Parental consent is required for a minor's abortion. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "alabama",
+        "state": "Alabama",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Health - Physical"],
+            "ban_penalties": ["Criminal - Felony"],
+            "method_bans": ["D&X", "D&E"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients forced to wait 48 hours after counseling. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "south_carolina",
+        "state": "South Carolina",
+        "abortion_bans": {
+            "abortion_ban": "Cardiac Activity Ban",
+            "ban_exceptions": ["Life", "Health - Physical", "Fetal Indication", "Rape/Incest"],
+            "abortion_ban_notes": "South Carolina's rape/incest exception is only applicable up to 12 weeks LMP. ",
+            "ban_penalties": ["Criminal - Felony", "Civil - Cause of Action", "Civil  - Professional Penalties"],
+            "method_bans": ["D&X"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_physical": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 6,
+            "de_facto_notes": "Abortion is banned based on fetal development of a \"fetal heartbeat,\" or when early electrical induced flickering of fetal tissue, may be detected in an embryo. This is interpreted to be a ban at around 6 weeks LMP with limited exceptions.",
+            "short_summary": "Abortion is banned at 6 weeks and later, with limited exceptions. Patients forced to wait 24 hours after counseling. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "6.0"
+        }
+    }, {
+        "state_id": "nevada",
+        "state": "Nevada",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 25,
+            "ban_exceptions": ["Life", "Health - Any"],
+            "abortion_ban_notes": "Self-managed abortion is a crime in Nevada after 24 weeks of pregnancy.",
+            "ban_penalties": ["Criminal - Misdemeanor"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 25,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 25.6 weeks and later with limited exceptions. Parental notice is required for a minor’s abortion. State Medicaid covers abortion care in specific circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "25.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "25.6"
+        }
+    }, {
+        "state_id": "north_dakota",
+        "state": "North Dakota",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Physical", "Rape/Incest"],
+            "abortion_ban_notes": "Violations by a physician constitutes a misdemeanor. ",
+            "ban_penalties": ["Criminal - Felony", "Criminal - Misdemeanor", "Civil - Cause of Action"],
+            "method_bans": ["D&X"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Patients forced to wait 24 hours after counseling. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange and private insurance coverage coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "maryland",
+        "state": "Maryland",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "State constitution protects abortion rights. State law protects abortion up to fetal viability. Abortion is not restricted based on gestational duration. Parental notice is required for a minor’s abortion. State Medicaid covers abortion care in specific circumstances. Private health insurance coverage of abortion is required. ",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "nebraska",
+        "state": "Nebraska",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 11,
+            "ban_exceptions": ["Life", "Health - Physical", "Rape/Incest"],
+            "ban_penalties": ["Civil  - Professional Penalties"],
+            "method_bans": ["D&E"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 11,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 11.6 weeks and later with limited exceptions. Patients forced to wait 24 hours after counseling. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage and private health insurance coverage of abortion is banned except in limited circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "11.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "11.6"
+        }
+    }, {
+        "state_id": "texas",
+        "state": "Texas",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Health - Physical"],
+            "abortion_ban_notes": "Each violation is also subject to a civil penalty of at least $100,000.",
+            "ban_penalties": ["Criminal - Felony", "Civil - Cause of Action", "Civil  - Professional Penalties"],
+            "support_bans": ["Civil Support Ban"],
+            "method_bans": ["D&X", "D&E"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 24 hours later for the abortion. Parental consent and notifice is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage and private health insurance coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "virginia",
+        "state": "Virginia",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 27,
+            "ban_exceptions": ["Life", "Health - Any"],
+            "ban_penalties": ["Criminal - Felony"],
+            "method_bans": ["D&X"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 27,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 27.6  weeks and later with limited exceptions. Parental consent and notification is required for a minor's abortion. State Medicaid covers abortion care in specific circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "27.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "27.6"
+        }
+    }, {
+        "state_id": "georgia",
+        "state": "Georgia",
+        "abortion_bans": {
+            "abortion_ban": "Cardiac Activity Ban",
+            "ban_exceptions": ["Life", "Health - Physical", "Fetal Indication", "Rape/Incest"],
+            "abortion_ban_notes": "Georgia's rape/incest exception only applicable up to 22 weeks LMP.",
+            "ban_penalties": ["Criminal - Felony", "Civil - Cause of Action"],
+            "method_bans": ["D&X"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_physical": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 6,
+            "de_facto_notes": "Abortion is banned based on fetal development of a \"fetal heartbeat,\" or when early electrical induced flickering of fetal tissue, may be detected in an embryo. This is interpreted to be a ban at around 6 weeks LMP with limited exceptions.",
+            "short_summary": "Abortion is banned at 6 weeks and later, with limited exceptions. Patients forced to wait 24 hours after counseling. Parental notice is required for a minor’s abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "6.0"
+        }
+    }, {
+        "state_id": "wisconsin",
+        "state": "Wisconsin",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 21,
+            "ban_exceptions": ["Life", "Health - Physical"],
+            "ban_penalties": ["Criminal - Felony", "Civil - Cause of Action"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 21,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 21.6 weeks and later with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 24 hours later for the abortion. Parental consent is required for a minor's abortion. State Medicaid covers abortion care in specific circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "21.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "21.6"
+        }
+    }, {
+        "state_id": "south_dakota",
+        "state": "South Dakota",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life"],
+            "ban_penalties": ["Criminal - Felony"],
+            "reason_bans": ["Sex", "Disability"],
+            "method_bans": ["D&X"],
+            "exception_life": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 72 hours later for the abortion. Parental notice is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "massachusetts",
+        "state": "Massachusetts",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 26,
+            "ban_exceptions": ["Life", "Health - Any", "Fetal Indication"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 26,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "State constitution and laws protect abortion rights up to fetal viability. Abortion is banned at 26.6 weeks and later with limited exceptions. Parental consent is required for a minor's abortion. State Medicaid covers abortion care in specific circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "26.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "26.6"
+        }
+    }, {
+        "state_id": "wyoming",
+        "state": "Wyoming",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Any"],
+            "ban_penalties": ["Criminal - Felony", "Civil - Cause of Action", "Civil  - Professional Penalties"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Parental consent and notice is required for a minor's abortion. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "louisiana",
+        "state": "Louisiana",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Health - Physical", "Fetal Indication"],
+            "ban_penalties": ["Criminal - Felony"],
+            "reason_bans": ["Disability"],
+            "method_bans": ["D&X", "D&E"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 72 hours later for the abortion. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "north_carolina",
+        "state": "North Carolina",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 12,
+            "ban_exceptions": ["Life", "Health - Any", "Rape/Incest", "Fetal Indication"],
+            "abortion_ban_notes": "North Carolina's rape/incest exception is only applicable up to 20 weeks LMP and fetal indication is only applicable up to 24 weeks LMP.",
+            "ban_penalties": ["Civil - Cause of Action", "Civil  - Professional Penalties"],
+            "reason_bans": ["Sex", "Race", "Disability"],
+            "method_bans": ["D&X"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_any": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 12,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 12.6 weeks and later with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 72 hours later for the abortion. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "12.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "12.6"
+        }
+    }, {
+        "state_id": "connecticut",
+        "state": "Connecticut",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Any"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State law protects abortion up to fetal viability. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care. ",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "tennessee",
+        "state": "Tennessee",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Health - Physical"],
+            "ban_penalties": ["Criminal - Felony"],
+            "support_bans": ["Criminal Support Ban"],
+            "reason_bans": ["Sex", "Race", "Disability"],
+            "method_bans": ["D&X"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 48 hours later for the abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "mississippi",
+        "state": "Mississippi",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Rape/Incest"],
+            "ban_penalties": ["Criminal - Felony"],
+            "reason_bans": ["Sex", "Race", "Disability"],
+            "method_bans": ["D&X", "D&E"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 24 hours later for the abortion. Parental consent is required for a minor's abortion. State Medicaid covers abortion care in specific circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "oklahoma",
+        "state": "Oklahoma",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life"],
+            "ban_penalties": ["Criminal - Felony"],
+            "reason_bans": ["Sex"],
+            "method_bans": ["D&E"],
+            "exception_life": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients forced to wait 72 hours after counseling.  Parental consent and notice is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "michigan",
+        "state": "Michigan",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "State constitution and laws protect abortion rights up to fetal viability. Abortion is not restricted based on gestational duration. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. ",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "kansas",
+        "state": "Kansas",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 21,
+            "ban_exceptions": ["Life", "Health - Physical"],
+            "ban_penalties": ["Criminal - Misdemeanor", "Civil - Cause of Action"],
+            "reason_bans": ["Sex"],
+            "method_bans": ["D&X"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 21,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "State constitution protects abortion rights up to fetal viability. Abortion is banned at 21.6 weeks and later with limited exceptions. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange and private insurance coverage of abortion is banned except in limited circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "21.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "21.6"
+        }
+    }, {
+        "state_id": "new_jersey",
+        "state": "New Jersey",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "Abortion is not restricted based on gestational duration. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "rhode_island",
+        "state": "Rhode_island",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Any"],
+            "ban_penalties": ["Civil  - Professional Penalties"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State law protects abortion up to fetal viability. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Parental consent is required for a minor's abortion. State Medicaid covers abortion care.",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "oregon",
+        "state": "Oregon",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "State laws protect abortion. Abortion is not restricted based on gestational duration. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care. Private health insurance coverage of abortion is required.",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "minnesota",
+        "state": "Minnesota",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "State constitution and laws protect abortion rights. Abortion is not restricted based on gestational duration. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "washington",
+        "state": "Washington",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Physical"],
+            "abortion_ban_notes": "The state cannot take adverse actions against individuals based on pregnancy outcomes or against anyone who assists “a pregnant individual in exercising their right to reproductive freedom with their voluntary consent”",
+            "ban_penalties": ["Criminal - Felony"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State laws protect abortion. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care. Private health insurance coverage of abortion is required.",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "maine",
+        "state": "Maine",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Any"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "While there is a viability ban in the law, due to a liberal exception, abortion is effectively not restricted based on gestational duration or fetal development.",
+            "short_summary": "State law protects abortion up to fetal viability. Abortion is not restricted based on gestational duration. State Medicaid covers abortion care. Private health insurance coverage of abortion is required.",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "west_virginia",
+        "state": "West Virginia",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Health - Physical", "Fetal Indication", "Rape/Incest"],
+            "abortion_ban_notes": "West Virginia’s rape/incest exception is limited to 8 weeks of pregnancy for adults and 14 for minors or incapacitated adults. Criminal penalties do not apply to licensed medical professionals.",
+            "ban_penalties": ["Criminal - Felony", "Civil  - Professional Penalties"],
+            "reason_bans": ["Disability"],
+            "method_bans": ["D&X", "D&E"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_physical": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients forced to wait 24 hours after counseling. Parental notice is required for a minor’s abortion. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "northern_mariana_islands",
+        "state": "Northern Mariana Islands",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "abortion_ban_notes": "The Commonwealth of the Northern Mariana Islands (CNMI) is governed by a 1976 Covenant with the US. \n\nThe CNMI constitution prohibits abortion \"except as provided by law,\" but there is no statute regulating abortion. After the overturn of Roe, it is somewhat unclear.",
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "colorado",
+        "state": "Colorado",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "State constitution and laws protect abortion rights. Abortion is not restricted based on gestational duration. Parental notice is required for a minor’s abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Private health insurance coverage of abortion is required. ",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "illinois",
+        "state": "Illinois",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Any"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State constitution and laws protect abortion rights up to fetal viability. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care. Private health insurance coverage of abortion is required.  ",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "new_york",
+        "state": "New York",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 26,
+            "ban_exceptions": ["Life", "Health - Any", "Fetal Indication"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 26,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "State constitution protects abortion rights. State law protects abortion up to fetal viability. Abortion is banned at 26.6 weeks and later with limited exceptions. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care in specific circumstances. Private health insurance coverage of abortion is required.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "26.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "26.6"
+        }
+    }, {
+        "state_id": "new_hampshire",
+        "state": "New Hampshire",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 23,
+            "ban_exceptions": ["Life", "Health - Physical", "Fetal Indication"],
+            "ban_penalties": ["Criminal - Felony", "Civil - Cause of Action"],
+            "method_bans": ["D&X"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 23,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 23.6 weeks and later with limited exceptions. Parental notice is required for a minor’s abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. ",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "23.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "23.6"
+        }
+    }, {
+        "state_id": "us_virgin_islands",
+        "state": "U.S. Virgin Islands",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 24,
+            "ban_exceptions": ["Life", "Health - Any"],
+            "abortion_ban_notes": "Abortions after 12 weeks must be performed in a hospital. ",
+            "ban_penalties": ["Criminal - Felony"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 24 weeks and later with limited exceptions.",
+            "gestational_ban_days": 0,
+            "gestational_ban_combined": "24.0",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "delaware",
+        "state": "Delaware",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Any", "Fetal Indication"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State law protects abortion up to fetal viability. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Parental notice is required for a minor’s abortion. State Medicaid covers abortion care. Private health insurance coverage of abortion is required. ",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "vermont",
+        "state": "Vermont",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "State constitution protects abortion rights. Abortion is not restricted based on gestational duration. Minors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "ohio",
+        "state": "Ohio",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 21,
+            "ban_exceptions": ["Affirmative Defense"],
+            "ban_penalties": ["Criminal - Felony", "Civil  - Professional Penalties", "Civil - Cause of Action"],
+            "reason_bans": ["Disability"],
+            "method_bans": ["D&X"],
+            "exception_life": true,
+            "exception_affirmative_defense": true,
+            "de_facto_gestational_ban_weeks": 21,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "State constitution protects abortion rights up to fetal viability. Abortion is banned at 21.6 weeks and later with limited exceptions. Parental consent and notifice is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "21.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "21.6"
+        }
+    }, {
+        "state_id": "pennsylvania",
+        "state": "Pennsylvania",
+        "abortion_bans": {
+            "abortion_ban": "Gestational Duration Ban",
+            "gestational_ban_weeks": 23,
+            "ban_exceptions": ["Life", "Health - Physical"],
+            "ban_penalties": ["Criminal - Felony", "Criminal - Misdemeanor"],
+            "reason_bans": ["Sex"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 23,
+            "de_facto_notes": "Abortion is banned after a certain number of weeks of gestation with limited exceptions.",
+            "short_summary": "Abortion is banned at 23.6  weeks and later with limited exceptions. Patients forced to wait 24 hours after counseling. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances.",
+            "gestational_ban_days": 6,
+            "gestational_ban_combined": "23.6",
+            "de_facto_gestational_ban_days": 6,
+            "de_facto_gestational_ban_combined": "23.6"
+        }
+    }, {
+        "state_id": "indiana",
+        "state": "Indiana",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Health - Physical", "Fetal Indication", "Rape/Incest"],
+            "abortion_ban_notes": "Indiana's rape/incest exception is only applicable up to 12 weeks LMP. Fetal indication is only available up to 22 weeks LMP. Iowa’s Feticide statute includes class “C” felony penalties for abortion provided with the pregnant person’s knowledge and consent “after the end of the second trimester.” ",
+            "ban_penalties": ["Criminal - Felony", "Civil  - Professional Penalties"],
+            "method_bans": ["D&X"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "exception_health_physical": true,
+            "exception_fetal": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients are forced to make two trips to obtain an abortion.  Parental consent is required for a minor's abortion. Health insurance exchange and private insurance coverage of abortion is banned except in limited circumstances. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "american_samoa",
+        "state": "American Samoa",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Health - Any", "Affirmative Defense"],
+            "abortion_ban_notes": "American Samoa is governed by executive order, and is administered largely by the Dept. of the Interior.\n\nThere is also an explicit law banning distribution of abortifacients.",
+            "ban_penalties": ["Criminal - Felony"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "exception_affirmative_defense": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "kentucky",
+        "state": "Kentucky",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Health - Physical"],
+            "ban_penalties": ["Criminal - Felony"],
+            "reason_bans": ["Sex", "Race", "Disability"],
+            "method_bans": ["D&X", "D&E"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 0,
+            "de_facto_notes": "Abortion is completely banned with limited exceptions.",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 24 hours later for the abortion. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange and private insurance coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "0.0"
+        }
+    }, {
+        "state_id": "missouri",
+        "state": "Missouri",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Physical"],
+            "ban_penalties": ["Criminal - Felony", "Civil  - Professional Penalties"],
+            "method_bans": ["D&X"],
+            "exception_life": true,
+            "exception_health_physical": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State constitution protects abortion rights up to fetal viability. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Parental consent and notice is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange coverage and private health insurance coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "idaho",
+        "state": "Idaho",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Rape/Incest"],
+            "abortion_ban_notes": "Idaho's rape/incest exception is only applicable during the first trimester.",
+            "ban_penalties": ["Criminal - Felony", "Civil - Cause of Action", "Civil  - Professional Penalties"],
+            "support_bans": ["Criminal Support Ban", "Civil Support Ban"],
+            "method_bans": ["D&X"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "Abortion is completely banned with limited exceptions. Patients forced to wait 24 hours after counseling. Parental consent is required for a minor's abortion. State Medicaid coverage of abortion care is banned except in limited circumstances. Health insurance exchange and private insurance coverage of abortion is banned except in limited circumstances.",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "puerto_rico",
+        "state": "Puerto Rico",
+        "abortion_bans": {
+            "abortion_ban": "Total Ban",
+            "ban_exceptions": ["Life", "Health - Any"],
+            "abortion_ban_notes": "The health exception to Puerto Rico's total abortion ban has been broadly interpreted by the Puerto Rico Supreme Court to include the \"broadest notions of physical, mental or socio-emotional wellbeing.\" see People v. Duarte Mendoza, 109 D.P.R. 596, 607 (1980)",
+            "ban_penalties": ["Criminal - Felony"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "While there is a total ban in the law, due to a court ruling and liberal interpretation of exceptions, abortion is effectively not restricted based on gestational duration or fetal development.",
+            "short_summary": "Abortion is completely banned with limited exceptions.",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "arizona",
+        "state": "Arizona",
+        "abortion_bans": {
+            "abortion_ban": "Fetal Viability Ban",
+            "ban_exceptions": ["Life", "Health - Any"],
+            "abortion_ban_notes": "Arizona bans abortion at fifteen weeks. However, the ban is currently being challenged as unconstitutional due to the state's constitutional amendment. Arizona’s Attorney General entered into a stipulation agreement to not enforce the ban. The state retains a ban at twenty weeks gestational age, which is permanently enjoined, and after viability. ",
+            "ban_penalties": ["Criminal - Felony"],
+            "reason_bans": ["Sex", "Race", "Disability"],
+            "method_bans": ["D&X"],
+            "exception_life": true,
+            "exception_health_any": true,
+            "de_facto_gestational_ban_weeks": 24,
+            "de_facto_notes": "Abortion is banned based on fetal development of  \"fetal viability,\" or when a fetus may potentially survive outside the uterus. This is generally interpreted to be a ban at around 24 weeks LMP with limited exceptions.",
+            "short_summary": "State constitution protects abortion rights up to fetal viability. Abortion is banned at fetal viability, generally 24–26 weeks of pregnancy, with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 24 hours later for the abortion. Parental consent is required for a minor's abortion. State Medicaid covers abortion care in specific circumstances. Health insurance exchange coverage of abortion is banned except in limited circumstances. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "24.0"
+        }
+    }, {
+        "state_id": "alaska",
+        "state": "Alaska",
+        "abortion_bans": {
+            "abortion_ban": "No Ban",
+            "no_restrictions": true,
+            "de_facto_gestational_ban_weeks": 99,
+            "de_facto_notes": "Abortion is not restricted based on gestational duration or fetal development. ",
+            "short_summary": "State constitution protects abortion rights. Abortion is not restricted based on gestational duration.\nMinors may consent to abortion, no parental involvement is required. State Medicaid covers abortion care in specific circumstances. ",
+            "de_facto_gestational_ban_combined": "99.0"
+        }
+    }, {
+        "state_id": "iowa",
+        "state": "Iowa",
+        "abortion_bans": {
+            "abortion_ban": "Cardiac Activity Ban",
+            "ban_exceptions": ["Life", "Health - Physical", "Fetal Indication", "Rape/Incest"],
+            "ban_penalties": ["Civil  - Professional Penalties"],
+            "exception_rape_or_incest": true,
+            "exception_life": true,
+            "de_facto_gestational_ban_weeks": 6,
+            "de_facto_notes": "Abortion is banned based on fetal development of a \"fetal heartbeat,\" or when early electrical induced flickering of fetal tissue, may be detected in an embryo. This is interpreted to be a ban at around 6 weeks LMP with limited exceptions.",
+            "short_summary": "Abortion is banned at 6 weeks and later, with limited exceptions. Patients are forced to make two trips to obtain an abortion. One for in-person counseling and another at least 24 hours later for the abortion. Parental notice is required for a minor’s abortion. State Medicaid covers abortion care in specific circumstances.",
+            "de_facto_gestational_ban_combined": "6.0"
+        }
+    }]
+}

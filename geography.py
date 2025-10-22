@@ -71,7 +71,7 @@ def city_latlon(state_abbr: str) -> Tuple[float, float]:
         raise ValueError(f"Unknown US state/territory abbreviation: {state_abbr!r}")
 
 
-def state_id(state_abbr: str) -> str:
+def get_state_id(state_abbr: str) -> str:
     abbr = state_abbr.strip().upper()
     names = {
         "AL": "alabama",
