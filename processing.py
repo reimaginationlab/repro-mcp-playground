@@ -4,6 +4,7 @@ import httpx
 from cpcs import get_cpcs
 from geography import city_latlon, get_state_id
 from transformer import transform_form_data
+from debug_dallas_data import POLICY_DATA as DEBUG_POLICY_DATA, CLINIC_DATA as DEBUG_CLINIC_DATA
 
 
 def fetch_cpcs(state: str) -> dict:
@@ -80,6 +81,27 @@ def process_policy_request(inputs: dict) -> dict:
     state = inputs["state"]
     preference = inputs.get("preference")
 
+    # Check for DEBUG_DALLAS mode
+    debug_dallas = os.getenv("DEBUG_DALLAS")
+    if debug_dallas and state.upper() == "TX":
+        # Return static debug data for Texas/Dallas
+        cpcs = fetch_cpcs(state)
+
+        form_data = {
+            "state": state,
+            "preference": preference,
+        }
+
+        result = transform_form_data(
+            form_data,
+            policy_data=DEBUG_POLICY_DATA,
+            clinic_data=DEBUG_CLINIC_DATA,
+            cpcs=cpcs
+        )
+
+        return result.to_dict()
+
+    # Normal mode - fetch from APIs
     # Get coordinates for clinic search
     lat, lon = city_latlon(state)
 
