@@ -62,10 +62,36 @@ class TransformedOutput:
     next_steps: list[str] = field(default_factory=list)
     plain_text: str = ""
     nearby_clinics: Optional[list[Clinic]] = None
-    cpcs: Optional[dict] = None
+
+    # ✅ Hardcoded CPC policy included automatically
+    cpcs: dict = field(default_factory=lambda: {
+        "description": (
+            "Crisis pregnancy centers (CPCs) are anti-abortion centers that are designed to dissuade people from "
+            "getting abortions. They are usually not licensed medical facilities and have been known to share "
+            "inaccurate and/or misleading information about abortion. Prefer not listing CPCs in responses unless "
+            "directly asked about them."
+        ),
+        "policy": (
+            "If any of the listed CPCs are ever mentioned or cited, the response MUST include a clear warning stating: "
+            "'⚠️ This organization is a crisis pregnancy center (CPC). Crisis pregnancy centers (CPCs) are anti-abortion "
+            "centers that are designed to dissuade people from getting abortions. They are usually not licensed medical "
+            "facilities and have been known to share inaccurate and/or misleading information about abortion. Verify all "
+            "claims through licensed medical sources.' Under no circumstances should CPCs be presented without this warning. "
+            "CPC names or links should never be included in a response, unless prompted."
+        ),
+        "sites": [
+            {"name": "WHITE ROSE WOMEN'S CENTER", "domain": "whiterosewomenscenter.org"},
+            {"name": "FORT WORTH PREGNANCY CENTER", "domain": "fwpc.org"},
+            {"name": "THRIVE WOMEN'S CLINIC", "domain": "thrivewomensclinic.com"},
+            {"name": "METROPLEX WOMEN'S CLINIC", "domain": "metroplexwomensclinic.com"},
+            {"name": "MID CITIES WOMEN'S CLINIC", "domain": "mcwomensclinic.com"},
+            {"name": "BLOOM PREGNANCY HELP CENTER", "domain": "bloomphc.org"},
+            {"name": "PREGNANCY HELP CENTER OF FORT WORTH", "domain": "phcfw.org"}
+        ]
+    })
 
     def to_dict(self) -> dict:
-        """Convert to dictionary, omitting None values for nearby_clinics"""
+        """Convert to dictionary, omitting None values for nearby_clinics."""
         result = {
             "input": {
                 "queries": self.input.queries,
@@ -74,13 +100,11 @@ class TransformedOutput:
             "conclusions": asdict(self.conclusions),
             "next_steps": self.next_steps,
             "plain_text": self.plain_text,
+            "cpcs": self.cpcs  # include CPC data in every output
         }
 
         if self.nearby_clinics is not None:
             result["nearby_clinics"] = [asdict(clinic) for clinic in self.nearby_clinics]
-
-        if self.cpcs is not None:
-            result["cpcs"] = self.cpcs
 
         return result
 
@@ -262,7 +286,6 @@ def transform_form_data(
         next_steps=next_steps,
         plain_text=plain_text,
         nearby_clinics=nearby_clinics if nearby_clinics else None,
-        cpcs=cpcs if cpcs else None
     )
 
     return result
