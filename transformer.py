@@ -31,6 +31,14 @@ class Clinic:
     drive_time: float
     services: Any
 
+@dataclass
+class Provider:
+    name:str 
+    costPills: float
+    medLmp: Any
+    minAge: float
+    deliveryTimeDays: float
+    website: str
 
 @dataclass
 class KnownParams:
