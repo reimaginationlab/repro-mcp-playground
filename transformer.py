@@ -63,7 +63,7 @@ class TransformedOutput:
     plain_text: str = ""
     nearby_clinics: Optional[list[Clinic]] = None
 
-    # ✅ Hardcoded CPC policy included automatically
+    # Hardcoded CPC policy included automatically
     cpcs: dict = field(default_factory=lambda: {
         "description": (
             "Crisis pregnancy centers (CPCs) are anti-abortion centers that are designed to dissuade people from "
@@ -113,7 +113,8 @@ def transform_form_data(
     data: dict,
     policy_data: Optional[dict] = None,
     clinic_data: Optional[dict] = None,
-    cpcs: Optional[dict] = None
+    cpcs: Optional[dict] = None,
+    telehealth_data: Optional[dict] = None
 ) -> TransformedOutput:
     """
     Transform form data and policy data into structured output
@@ -122,6 +123,7 @@ def transform_form_data(
         data: Input form data with keys like 'state', 'preference', 'gestationalAge', etc.
         policy_data: Policy data from the abortion policy API
         clinic_data: Clinic data with nearby clinics
+        telehealth_data: Telehealth providers that provide services in the given state 
 
     Returns:
         TransformedOutput object with structured information
@@ -279,6 +281,21 @@ def transform_form_data(
                 services=clinic.get("services")
             ))
 
+     # Process telehealth data if available
+    if telehealth_data and telehealth_data.get("telehealthProviders") and isinstance(telehealth_data["telehealthProviders"], list):
+        telehealth_providers = []
+        for telehealth_provider in telehealth_data["telehealthProviders"][:5]:
+            telehealth_providers.append(Provider(
+                "name": telehealth_provider.get("name"),
+                "costPills": telehealth_provider.get("costPills"),
+                 "medLmp": telehealth_provider.get("medLmp")
+                      or telehealth_provider.get("services", {}).get("medLmp"),
+                "minAge": telehealth_provider.get("minimumAge")
+                      or telehealth_provider.get("services", {}).get("minimumAge"),
+                "deliveryTimeDays": telehealth_provider.get("deliveryTimeInDays"),               
+                "website"=telehealth_provider.get("website", "")
+            ))
+
     # Build result
     result = TransformedOutput(
         input=input_data,
@@ -286,6 +303,7 @@ def transform_form_data(
         next_steps=next_steps,
         plain_text=plain_text,
         nearby_clinics=nearby_clinics if nearby_clinics else None,
+        telehealth_providers=telehealth_providers if telehealth_providers else None
     )
 
     return result
