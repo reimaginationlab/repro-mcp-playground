@@ -286,14 +286,14 @@ def transform_form_data(
         telehealth_providers = []
         for telehealth_provider in telehealth_data["telehealthProviders"][:5]:
             telehealth_providers.append(Provider(
-                "name": telehealth_provider.get("name"),
-                "costPills": telehealth_provider.get("costPills"),
-                 "medLmp": telehealth_provider.get("medLmp")
+                name: telehealth_provider.get("name"),
+                costPills: telehealth_provider.get("costPills"),
+                medLmp: telehealth_provider.get("medLmp")
                       or telehealth_provider.get("services", {}).get("medLmp"),
-                "minAge": telehealth_provider.get("minimumAge")
+                minAge: telehealth_provider.get("minimumAge")
                       or telehealth_provider.get("services", {}).get("minimumAge"),
-                "deliveryTimeDays": telehealth_provider.get("deliveryTimeInDays"),               
-                "website"=telehealth_provider.get("website", "")
+                deliveryTimeDays: telehealth_provider.get("deliveryTimeInDays"),               
+                website=telehealth_provider.get("website", "")
             ))
 
     # Build result
