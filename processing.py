@@ -73,6 +73,34 @@ async def fetch_clinic_data(latitude: float, longitude: float, api_key: str, max
     # If we exhausted all retries, raise the last exception
     raise last_exception
 
+async def fetch_telehealth_data(state: str, api_key: str, max_retries: int = 3) -> dict:
+    """Fetch telehealth provider data from the ineedana.com API with retries"""
+    url = "https://www.ineedana.com/api/v2/telehealth-providers"
+    params = {
+        "state": state,
+        "locale": "en-US",
+    }
+    headers = {
+        "Authorization": f"Bearer {api_key}"
+    }
+
+    last_exception = None
+    for attempt in range(max_retries):
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                response = await client.get(url, params=params, headers=headers)
+                response.raise_for_status()
+                return response.json()
+        except (httpx.HTTPError, httpx.TimeoutException) as e:
+            last_exception = e
+            if attempt < max_retries - 1:
+                # Exponential backoff: 1s, 2s, 4s
+                wait_time = 2 ** attempt
+                await asyncio.sleep(wait_time)
+            continue
+
+    # If we exhausted all retries, raise the last exception
+    raise last_exception
 
 def process_policy_request(inputs: dict) -> dict:
     """Process policy request and return transformed data"""
@@ -122,9 +150,10 @@ def process_policy_request(inputs: dict) -> dict:
     async def fetch_all_data():
         policy_task = fetch_policy_data(state, policy_api_key, policy_subscription_key)
         clinic_task = fetch_clinic_data(lat, lon, ineedana_api_key)
-        return await asyncio.gather(policy_task, clinic_task)
+        telehealth data = fetch_telehealth_data(state, ineedana_api_key)
+        return await asyncio.gather(policy_task, clinic_task, telehealth_data)
 
-    policy_data, clinic_data = asyncio.run(fetch_all_data())
+    policy_data, clinic_data, telehealth_data = asyncio.run(fetch_all_data())
 
     # Fetch CPCs data
     cpcs = fetch_cpcs(state)
@@ -135,7 +164,7 @@ def process_policy_request(inputs: dict) -> dict:
         "preference": preference,
     }
 
-    result = transform_form_data(form_data, policy_data=policy_data, clinic_data=clinic_data, cpcs=cpcs)
+    result = transform_form_data(form_data, policy_data=policy_data, clinic_data=clinic_data, cpcs=cpcs, telehealth_data=telehealth_data)
 
     return result.to_dict()
 
