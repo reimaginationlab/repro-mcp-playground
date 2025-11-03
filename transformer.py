@@ -70,6 +70,7 @@ class TransformedOutput:
     next_steps: list[str] = field(default_factory=list)
     plain_text: str = ""
     nearby_clinics: Optional[list[Clinic]] = None
+    telehealth_providers: Optional[list[Provider]] = None
 
     # Hardcoded CPC policy included automatically
     cpcs: dict = field(default_factory=lambda: {
@@ -99,7 +100,7 @@ class TransformedOutput:
     })
 
     def to_dict(self) -> dict:
-        """Convert to dictionary, omitting None values for nearby_clinics."""
+        """Convert to dictionary, omitting None values for nearby_clinics and telehealth_providers."""
         result = {
             "input": {
                 "queries": self.input.queries,
@@ -113,9 +114,10 @@ class TransformedOutput:
 
         if self.nearby_clinics is not None:
             result["nearby_clinics"] = [asdict(clinic) for clinic in self.nearby_clinics]
+        if self.telehealth_providers is not None:
+            result["telehealth_providers"] = [asdict(provider) for provider in self.telehealth_providers]
 
         return result
-
 
 def transform_form_data(
     data: dict,
