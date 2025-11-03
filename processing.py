@@ -150,7 +150,7 @@ def process_policy_request(inputs: dict) -> dict:
     async def fetch_all_data():
         policy_task = fetch_policy_data(state, policy_api_key, policy_subscription_key)
         clinic_task = fetch_clinic_data(lat, lon, ineedana_api_key)
-        telehealth data = fetch_telehealth_data(state, ineedana_api_key)
+        telehealth_data = fetch_telehealth_data(state, ineedana_api_key)
         return await asyncio.gather(policy_task, clinic_task, telehealth_data)
 
     policy_data, clinic_data, telehealth_data = asyncio.run(fetch_all_data())
